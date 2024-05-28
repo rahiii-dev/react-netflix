@@ -2,8 +2,11 @@ import Movie from "./Movie";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import UseMovieList from "../hooks/useMovieList";
 
-const MovieList = ({title}) => {
+const MovieList = ({title, url}) => {
+    const moviesList = UseMovieList(url);
+
     const settings = {
         dots: false,
         infinite: false,
@@ -14,24 +17,13 @@ const MovieList = ({title}) => {
       };
 
     return (
-        <div className="mb-14 ps-6">
+        <div className="mb-12 ps-6">
             <h1 className="font-medium text-xl text-white mb-4">{title}</h1>
             <div>
                 <Slider {...settings}>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
-                    <Movie url="/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"></Movie>
+                    {moviesList.map((movie) => {
+                        return <Movie key={movie?.id} movieId={movie?.id} imageUrl={movie?.backdrop_path} title={movie?.title}/>
+                    })}
                 </Slider>
             </div>
         </div>
