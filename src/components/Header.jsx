@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 
 
 const Header = () => {
-   const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState(null);
   const [trailer, setTrailer] = useState(null);
   const movies = useMovieList("discover/movie");
     
