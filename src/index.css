@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .container {
-    width: min(1000px, calc(100% - 2rem));
-    margin-inline: auto;
+  width: min(1000px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
